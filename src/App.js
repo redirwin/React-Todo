@@ -7,16 +7,28 @@ import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
-	state = {
-		task: 'Organize Garage',
-		id: 1528817077286,
-		completed: false
-	};
+	constructor() {
+		super();
+		this.state = {
+			list: [
+				{
+					task: 'Organize Garage',
+					id: 1528817077286,
+					completed: false
+				},
+				{
+					task: 'Bake Cookies',
+					id: 1528817084358,
+					completed: false
+				}
+			]
+		};
+	}
 
 	render() {
 		return (
 			<div>
-				<TodoList />
+				<TodoList list={this.state.list} />
 				<TodoForm />
 			</div>
 		);

@@ -3,7 +3,13 @@
 import React from 'react';
 
 const TodoForm = () => {
-	return <p>Hello from TodoForm.js</p>;
+	return (
+		<form>
+			<input placeholder="Enter New Todo" />
+			<button>Add Todo</button>
+			<button>Clear Completed</button>
+		</form>
+	);
 };
 
 export default TodoForm;
