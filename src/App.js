@@ -5,7 +5,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-// import './components/TodoComponents/Todo.css';
+import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
 	constructor() {
@@ -62,13 +62,13 @@ class App extends React.Component {
 			return {
 				list: prevState.list.map(item => {
 					if (item.id === id) {
-						console.log(item);
+						// console.log(item);
 						return {
 							...item,
 							completed: !item.completed
 						};
 					} else {
-						console.log(item);
+						// console.log(item);
 						return item;
 					}
 				})
@@ -84,6 +84,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
+				<h1>My Todos</h1>
 				<TodoList
 					list={this.state.list}
 					toggleDone={this.toggleDone}

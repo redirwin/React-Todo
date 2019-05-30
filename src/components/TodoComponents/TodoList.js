@@ -2,12 +2,10 @@
 
 import React from 'react';
 import Todo from './Todo';
-// import './Todo.css';
 
 function TodoList(props) {
 	return (
 		<div>
-			<h1>My Todos</h1>
 			<ul>
 				{props.list.map(item => {
 					return (
@@ -18,6 +16,9 @@ function TodoList(props) {
 								props.toggleDone
 							}
 							id={item.id}
+							completed={
+								item.completed
+							}
 						/>
 					);
 				})}

@@ -1,7 +1,6 @@
 // Holds input field and `Add Todo` and `Clear Completed` buttons.
 
 import React from 'react';
-// import './Todo.css';
 
 function TodoForm(props) {
 	return (
