@@ -2,17 +2,18 @@
 
 import React from 'react';
 
-function Todo(props) {
+// function Todo(props)
+const Todo = props => {
 	console.log(props.completed);
 	return (
 		<li
 			// evaluate truthiness of completed to set className
 			className={`item${props.completed ? ' completed' : ''}`}
-			onClick={() => props.toggleDone(props.id)}
+			onClick={event => props.toggleDone(event, props.id)}
 		>
 			{props.line}
 		</li>
 	);
-}
+};
 
 export default Todo;

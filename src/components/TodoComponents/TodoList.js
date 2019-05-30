@@ -3,7 +3,8 @@
 import React from 'react';
 import Todo from './Todo';
 
-function TodoList(props) {
+// function TodoList(props) Why not this?? Does it have to do with binding 'this'?
+const TodoList = props => {
 	return (
 		<div>
 			<ul>
@@ -12,12 +13,12 @@ function TodoList(props) {
 						<Todo
 							key={item.id}
 							line={item.task}
-							toggleDone={
-								props.toggleDone
-							}
 							id={item.id}
 							completed={
 								item.completed
+							}
+							toggleDone={
+								props.toggleDone
 							}
 						/>
 					);
@@ -25,6 +26,6 @@ function TodoList(props) {
 			</ul>
 		</div>
 	);
-}
+};
 
 export default TodoList;

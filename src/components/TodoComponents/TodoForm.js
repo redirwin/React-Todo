@@ -2,7 +2,8 @@
 
 import React from 'react';
 
-function TodoForm(props) {
+// function TodoForm(props)
+const TodoForm = props => {
 	return (
 		<div>
 			<form
@@ -25,6 +26,6 @@ function TodoForm(props) {
 			</button>
 		</div>
 	);
-}
+};
 
 export default TodoForm;

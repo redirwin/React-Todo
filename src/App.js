@@ -28,8 +28,8 @@ class App extends React.Component {
 					completed: false
 				},
 				{
-					task: 'Bake Cookies',
-					id: 1528867358,
+					task: 'Sleep',
+					id: 48,
 					completed: false
 				}
 			],
@@ -57,7 +57,8 @@ class App extends React.Component {
 		});
 	};
 
-	toggleDone = id => {
+	toggleDone = (event, id) => {
+		event.preventDefault();
 		this.setState(prevState => {
 			return {
 				list: prevState.list.map(item => {
@@ -76,10 +77,15 @@ class App extends React.Component {
 		});
 	};
 
-	// clearCompleted = event => {
-	// 	event.preventDefault();
-	//
-	// };
+	clearCompleted = event => {
+		event.preventDefault();
+		console.log(this.state.list);
+		this.setState({
+			list: this.state.list.filter(
+				item => item.completed === false
+			)
+		});
+	};
 
 	render() {
 		return (
@@ -93,6 +99,7 @@ class App extends React.Component {
 					taskInput={this.state.taskInput}
 					changeHandler={this.changeHandler}
 					addTask={this.addTask}
+					clearCompleted={this.clearCompleted}
 				/>
 			</div>
 		);
