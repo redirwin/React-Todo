@@ -6,7 +6,7 @@ import Todo from './Todo';
 function TodoList(props) {
 	return (
 		<div>
-			<h1>Dave's Todo List</h1>
+			<h1>My Todos</h1>
 			<ul>
 				{props.list.map(function(item, i) {
 					return (

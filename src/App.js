@@ -4,72 +4,46 @@
 
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
-// import TodoForm from './components/TodoComponents/TodoForm';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			list: [
-				{
-					task: 'Organize Garage',
-					id: 1528817077286,
-					completed: false
-				},
-				{
-					task: 'Bake Cookies',
-					id: 1528817084358,
-					completed: false
-				},
-				{
-					task: 'take nap',
-					id: 12345,
-					completed: false
-				}
-			],
-			newItem: ''
+			list: [],
+			taskInput: ''
 		};
 	}
+
+	changeHandler = event => {
+		event.preventDefault();
+		this.setState({
+			[event.target.name]: event.target.value
+		});
+	};
 
 	addTask = event => {
 		event.preventDefault();
 		const newTask = {
-			task: 'nap',
+			task: this.state.taskInput,
 			id: Date.now(),
 			completed: false
 		};
 		this.setState({
-			list: [...this.state.list, newTask]
-		});
-	};
-
-	handleChanges = event => {
-		event.preventDefault();
-		console.log(event.target.value);
-		this.setState({
-			newItem: event.target.value
+			list: [...this.state.list, newTask],
+			taskInput: ''
 		});
 	};
 
 	render() {
 		return (
 			<div>
-				{<TodoList list={this.state.list} />}
-				{/*<TodoForm />*/}
-
-				<form className="form">
-					<input
-						type="text"
-						name="taskInput"
-						placeholder="Add New Item"
-						value={this.state.newItem}
-						onChange={this.handleChanges}
-					/>
-					<button onClick={this.addTask}>
-						Add Todo
-					</button>
-					<button>Clear Completed</button>
-				</form>
+				<TodoList list={this.state.list} />
+				<TodoForm
+					taskInput={this.state.taskInput}
+					changeHandler={this.changeHandler}
+					addTask={this.addTask}
+				/>
 			</div>
 		);
 	}
