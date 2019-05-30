@@ -3,15 +3,22 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = props => {
+function TodoList(props) {
 	return (
 		<div>
-			{props.list.map(task => (
-				<Todo item={task.task} />
-				// <p>{task.task}</p>
-			))}
+			<h1>Dave's Todo List</h1>
+			<ul>
+				{props.list.map(function(item, i) {
+					return (
+						<Todo
+							line={item.task}
+							key={i}
+						/>
+					);
+				})}
+			</ul>
 		</div>
 	);
-};
+}
 
 export default TodoList;

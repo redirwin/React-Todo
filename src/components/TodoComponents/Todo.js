@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-const Todo = props => {
-	return <div>{props.item}</div>;
-};
+function Todo(props) {
+	return <li>{props.line}</li>;
+}
 
 export default Todo;
