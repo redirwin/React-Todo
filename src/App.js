@@ -11,28 +11,7 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			list: [
-				{
-					task: 'Organize Garage',
-					id: 1528817077286,
-					completed: false
-				},
-				{
-					task: 'Bake Cookies',
-					id: 1528817084358,
-					completed: false
-				},
-				{
-					task: 'Eat',
-					id: 152881707528,
-					completed: false
-				},
-				{
-					task: 'Sleep',
-					id: 48,
-					completed: false
-				}
-			],
+			list: [],
 			taskInput: ''
 		};
 	}
@@ -51,10 +30,14 @@ class App extends React.Component {
 			id: Date.now(),
 			completed: false
 		};
-		this.setState({
-			list: [...this.state.list, newTask],
-			taskInput: ''
-		});
+
+		// if input isn't empty, then set state
+		if (this.state.taskInput !== '') {
+			this.setState({
+				list: [...this.state.list, newTask],
+				taskInput: ''
+			});
+		}
 	};
 
 	toggleDone = (event, id) => {
@@ -89,6 +72,7 @@ class App extends React.Component {
 	};
 
 	render() {
+		localStorage.setItem('list', JSON.stringify(this.state.list));
 		return (
 			<div className="body-container">
 				<section className="header">
