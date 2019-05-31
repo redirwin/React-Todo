@@ -1,11 +1,11 @@
 // Holds input field and `Add Todo` and `Clear Completed` buttons.
 
 import React from 'react';
+import './TodoForm.scss';
 
-// function TodoForm(props)
 const TodoForm = props => {
 	return (
-		<div>
+		<div className="form-container">
 			<form
 				className="form"
 				onSubmit={event => props.addTask(event)}
@@ -20,10 +20,14 @@ const TodoForm = props => {
 					}
 				/>
 				<button>Add Item</button>
+				<button
+					onClick={event =>
+						props.clearCompleted(event)
+					}
+				>
+					Clear Completed
+				</button>
 			</form>
-			<button onClick={event => props.clearCompleted(event)}>
-				Clear Completed
-			</button>
 		</div>
 	);
 };

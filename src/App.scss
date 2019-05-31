@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+body {
+	background-color: #e7e8ea;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h1 {
+	font-size: 2.5rem;
+	text-align: center;
+}
+
+.header {
+	background-color: #593959;
+	display: flex;
+	justify-content: center;
+	color: white;
+	font-family: 'Pacifico', cursive;
+}
+
+footer {
+	background-color: #593959;
+	text-align: center;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.9rem;
+	padding: 1.5%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+
+	a {
+		text-decoration: none;
+		color: white;
+	}
+}

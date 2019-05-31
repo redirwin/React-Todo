@@ -7,23 +7,17 @@ import Todo from './Todo';
 const TodoList = props => {
 	return (
 		<div>
-			<ul>
-				{props.list.map(item => {
-					return (
-						<Todo
-							key={item.id}
-							line={item.task}
-							id={item.id}
-							completed={
-								item.completed
-							}
-							toggleDone={
-								props.toggleDone
-							}
-						/>
-					);
-				})}
-			</ul>
+			{props.list.map(item => {
+				return (
+					<Todo
+						key={item.id}
+						line={item.task}
+						id={item.id}
+						completed={item.completed}
+						toggleDone={props.toggleDone}
+					/>
+				);
+			})}
 		</div>
 	);
 };

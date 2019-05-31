@@ -5,7 +5,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import './components/TodoComponents/Todo.css';
+import './App.scss';
 
 class App extends React.Component {
 	constructor() {
@@ -59,6 +59,7 @@ class App extends React.Component {
 
 	toggleDone = (event, id) => {
 		event.preventDefault();
+		event.stopPropagation();
 		this.setState(prevState => {
 			return {
 				list: prevState.list.map(item => {
@@ -89,18 +90,37 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h1>My Todos</h1>
-				<TodoList
-					list={this.state.list}
-					toggleDone={this.toggleDone}
-				/>
-				<TodoForm
-					taskInput={this.state.taskInput}
-					changeHandler={this.changeHandler}
-					addTask={this.addTask}
-					clearCompleted={this.clearCompleted}
-				/>
+			<div className="body-container">
+				<section className="header">
+					<h1>Do Things</h1>
+				</section>
+
+				<section className="form">
+					<TodoForm
+						taskInput={this.state.taskInput}
+						changeHandler={
+							this.changeHandler
+						}
+						addTask={this.addTask}
+						clearCompleted={
+							this.clearCompleted
+						}
+					/>
+				</section>
+
+				<div className="list-items">
+					<TodoList
+						list={this.state.list}
+						toggleDone={this.toggleDone}
+					/>
+				</div>
+
+				<footer>
+					<a href="http://github.com/redirwin">
+						Design & Development by Dave
+						Irwin
+					</a>
+				</footer>
 			</div>
 		);
 	}
